@@ -2,7 +2,8 @@
 
 A simple **Task Manager web app** built with **HTML, CSS, and JavaScript** to help users track and manage their daily tasks.
 
-🔗 Live Demo
+## 🔗 Live Demo
+
 👉 https://mubin25s.github.io/Task_Manager/
 
 ## 🧩 Overview
