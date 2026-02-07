@@ -248,6 +248,7 @@ body::after {
     background: var(--neon-gradient);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     opacity: 0;
     transition: var(--transition);
@@ -310,40 +311,62 @@ body::after {
 .add-task-section,
 .filter-section,
 .tasks-section {
-    margin-bottom: 40px;
-    animation: fadeIn 0.8s ease-out;
+    margin-bottom: 60px;
+    animation: fadeIn 1s ease-out 0.4s backwards;
 }
 
 .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     color: var(--text-primary);
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .section-title .icon {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));
 }
 
 /* Form Styles */
 .task-form {
-    background: var(--bg-card);
-    border-radius: 20px;
-    padding: 30px;
+    background: var(--card-gradient);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 40px;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.task-form::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: var(--neon-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 .form-row {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-row-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 25px;
 }
 
 .form-group {
@@ -353,35 +376,38 @@ body::after {
 
 .form-group label {
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: var(--text-primary);
-    font-size: 0.95rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-    padding: 12px 16px;
+    padding: 14px 18px;
     border: 2px solid var(--border-color);
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 1rem;
     font-family: inherit;
-    background: var(--bg-secondary);
+    background: rgba(10, 10, 15, 0.6);
     color: var(--text-primary);
     transition: var(--transition);
+    backdrop-filter: blur(10px);
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.2), 0 0 20px rgba(0, 240, 255, 0.3);
+    background: rgba(10, 10, 15, 0.8);
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 100px;
 }
 
 /* Button Styles */
